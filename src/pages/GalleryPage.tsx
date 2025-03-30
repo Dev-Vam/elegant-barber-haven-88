@@ -3,8 +3,37 @@ import React, { useState, useEffect } from 'react';
 import Layout from '@/components/layout/Layout';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Filter, Image, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+// Gallery carousel images
+const carouselImages = [
+  {
+    id: 1,
+    src: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    alt: "Professional fade haircut",
+    caption: "Premium Fade & Style"
+  },
+  {
+    id: 2,
+    src: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    alt: "Man getting a haircut",
+    caption: "Expert Precision Cuts"
+  },
+  {
+    id: 3,
+    src: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    alt: "Beard trimming",
+    caption: "Professional Beard Grooming"
+  },
+  {
+    id: 4,
+    src: "https://images.unsplash.com/photo-1519689373023-dd07c7988603?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    alt: "Clean up service",
+    caption: "Complete Styling Services"
+  }
+];
+
+// Gallery categories
 const galleryCategories = [
   {
     title: "Haircuts",
@@ -28,7 +57,7 @@ const galleryCategories = [
   }
 ];
 
-// Sample gallery images
+// Gallery images
 const galleryImages = [
   {
     id: 1,
@@ -83,54 +112,28 @@ const galleryImages = [
     src: "https://images.unsplash.com/photo-1567894340315-735d7c361db0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     category: "Hair Designs",
     alt: "Creative hair design"
-  },
-  {
-    id: 10,
-    src: "https://images.unsplash.com/photo-1587909209111-5097ee578ec3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    category: "Haircuts",
-    alt: "Modern hairstyle"
-  },
-  {
-    id: 11,
-    src: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    category: "Fades",
-    alt: "Sharp fade"
-  },
-  {
-    id: 12,
-    src: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    category: "Fades",
-    alt: "Clean fade haircut"
-  }
-];
-
-// Sample client transformations
-const transformations = [
-  {
-    id: 1,
-    before: "https://images.unsplash.com/photo-1519689373023-dd07c7988603?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    after: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    title: "Classic Fade Transformation",
-    description: "Complete style update with precise fade and beard shaping."
-  },
-  {
-    id: 2,
-    before: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    after: "https://images.unsplash.com/photo-1610288311735-39b7facbd095?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    title: "Modern Texture Cut",
-    description: "Transformed long hair into a textured modern style with natural movement."
   }
 ];
 
 const GalleryPage = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredImages, setFilteredImages] = useState(galleryImages);
-  const [visibleCount, setVisibleCount] = useState(8);
   
+  // Handle carousel navigation
   useEffect(() => {
     // Scroll to top when page loads
     window.scrollTo(0, 0);
     
+    // Auto-advance carousel
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
+  
+  useEffect(() => {
     // Filter images based on selected category
     if (selectedCategory === "All") {
       setFilteredImages(galleryImages);
@@ -139,31 +142,108 @@ const GalleryPage = () => {
     }
   }, [selectedCategory]);
 
-  const loadMore = () => {
-    setVisibleCount(prev => Math.min(prev + 4, filteredImages.length));
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? carouselImages.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
   };
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-16 bg-gradient-to-r from-barber-charcoal to-black">
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="container-custom relative z-10 text-white">
-          <h1 className="text-4xl md:text-5xl font-playfair font-bold mb-4 animate-fade-in">Our Gallery</h1>
-          <p className="text-xl opacity-90 max-w-2xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Browse our portfolio of haircuts, styles, and grooming services
-          </p>
+      {/* Hero Section with Carousel */}
+      <section className="relative pt-16 h-[80vh] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent z-10"></div>
+        
+        {/* Carousel */}
+        <div className="relative h-full">
+          {carouselImages.map((image, index) => (
+            <div 
+              key={image.id}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                index === currentSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img 
+                src={image.src} 
+                alt={image.alt} 
+                className="w-full h-full object-cover object-center"
+              />
+              
+              <div className="absolute inset-0 flex items-center justify-center z-20">
+                <div className="text-center text-white max-w-2xl px-4">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold mb-4">Our Gallery</h1>
+                  <p className="text-xl mb-8 opacity-90">{image.caption}</p>
+                  <Button asChild className="bg-barber-gold hover:bg-barber-brown text-white px-8 py-6 rounded-sm">
+                    <Link to="/booking">Book Appointment</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          ))}
+          
+          {/* Carousel Controls */}
+          <button 
+            onClick={prevSlide}
+            className="absolute top-1/2 left-4 z-20 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transform -translate-y-1/2"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          
+          <button 
+            onClick={nextSlide}
+            className="absolute top-1/2 right-4 z-20 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transform -translate-y-1/2"
+            aria-label="Next slide"
+          >
+            <ChevronRight size={24} />
+          </button>
+          
+          {/* Carousel Indicators */}
+          <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center space-x-2">
+            {carouselImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentSlide ? 'bg-barber-gold' : 'bg-white/50'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              ></button>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Gallery Categories */}
       <section className="py-16">
         <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4">Our Work Categories</h2>
+            <p className="text-barber-charcoal/80 max-w-2xl mx-auto">
+              Browse our collection of premium grooming styles and services
+            </p>
+          </div>
+          
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div 
+              className={`bg-white shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border-t-2 border-barber-gold p-6 cursor-pointer ${
+                selectedCategory === "All" ? 'bg-barber-gold/10' : ''
+              }`}
+              onClick={() => setSelectedCategory("All")}
+            >
+              <h3 className="text-xl font-playfair font-semibold mb-2">All Work</h3>
+              <p className="text-barber-charcoal/70 mb-4">View our complete collection of styles.</p>
+              <p className="text-sm text-barber-gold">{galleryImages.length} photos</p>
+            </div>
+            
             {galleryCategories.map((category, index) => (
               <div 
                 key={index} 
-                className="bg-white shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border-t-2 border-barber-gold p-6 cursor-pointer"
+                className={`bg-white shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border-t-2 border-barber-gold p-6 cursor-pointer ${
+                  selectedCategory === category.title ? 'bg-barber-gold/10' : ''
+                }`}
                 onClick={() => setSelectedCategory(category.title)}
               >
                 <h3 className="text-xl font-playfair font-semibold mb-2">{category.title}</h3>
@@ -179,38 +259,16 @@ const GalleryPage = () => {
       <section className="py-16 bg-barber-cream">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4">Our Recent Work</h2>
+            <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4">
+              {selectedCategory === "All" ? "Our Featured Work" : selectedCategory}
+            </h2>
             <p className="text-barber-charcoal/80 max-w-2xl mx-auto">
               Take a look at some of our recent haircuts and styles to get inspired for your next visit.
             </p>
-            
-            {/* Filter Controls */}
-            <div className="flex flex-wrap justify-center items-center gap-3 mt-8">
-              <span className="flex items-center mr-2">
-                <Filter size={18} className="mr-1" /> Filter:
-              </span>
-              <Button 
-                variant={selectedCategory === "All" ? "default" : "outline"} 
-                className={selectedCategory === "All" ? "bg-barber-gold hover:bg-barber-brown" : "border-barber-gold text-barber-charcoal"}
-                onClick={() => setSelectedCategory("All")}
-              >
-                All
-              </Button>
-              {galleryCategories.map((cat) => (
-                <Button 
-                  key={cat.title}
-                  variant={selectedCategory === cat.title ? "default" : "outline"} 
-                  className={selectedCategory === cat.title ? "bg-barber-gold hover:bg-barber-brown" : "border-barber-gold text-barber-charcoal"}
-                  onClick={() => setSelectedCategory(cat.title)}
-                >
-                  {cat.title}
-                </Button>
-              ))}
-            </div>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {filteredImages.slice(0, visibleCount).map((image) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {filteredImages.map((image) => (
               <div 
                 key={image.id} 
                 className="relative aspect-square rounded-sm overflow-hidden group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
@@ -230,58 +288,6 @@ const GalleryPage = () => {
               </div>
             ))}
           </div>
-          
-          {visibleCount < filteredImages.length && (
-            <div className="text-center mt-12">
-              <Button 
-                onClick={loadMore}
-                className="bg-barber-gold hover:bg-barber-brown text-white px-8 py-6 rounded-sm"
-              >
-                Load More
-              </Button>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Client Transformations */}
-      <section className="py-16">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4">Client Transformations</h2>
-            <p className="text-barber-charcoal/80 max-w-2xl mx-auto">
-              See the amazing before and after transformations of our satisfied clients.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {transformations.map((item) => (
-              <div key={item.id} className="bg-white shadow-md p-6 hover:shadow-lg transition-shadow">
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="aspect-square overflow-hidden">
-                    <img 
-                      src={item.before} 
-                      alt="Before" 
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="bg-barber-charcoal/80 text-white text-center py-1">Before</div>
-                  </div>
-                  <div className="aspect-square overflow-hidden">
-                    <img 
-                      src={item.after} 
-                      alt="After" 
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="bg-barber-gold text-white text-center py-1">After</div>
-                  </div>
-                </div>
-                <h3 className="text-xl font-playfair font-semibold">{item.title}</h3>
-                <p className="text-barber-charcoal/70">{item.description}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -289,7 +295,7 @@ const GalleryPage = () => {
       <section className="py-16 bg-gradient-to-r from-barber-charcoal to-barber-brown text-white">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6">
-            Ready for Your Transformation?
+            Ready for Your Next Premium Cut?
           </h2>
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
             Book an appointment today and let our master barbers create your perfect look.
