@@ -3,35 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Layout from '@/components/layout/Layout';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-// Gallery carousel images
-const carouselImages = [
-  {
-    id: 1,
-    src: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-    alt: "Professional fade haircut",
-    caption: "Premium Fade & Style"
-  },
-  {
-    id: 2,
-    src: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-    alt: "Man getting a haircut",
-    caption: "Expert Precision Cuts"
-  },
-  {
-    id: 3,
-    src: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-    alt: "Beard trimming",
-    caption: "Professional Beard Grooming"
-  },
-  {
-    id: 4,
-    src: "https://images.unsplash.com/photo-1519689373023-dd07c7988603?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-    alt: "Clean up service",
-    caption: "Complete Styling Services"
-  }
-];
+import { Card, CardContent } from '@/components/ui/card';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 // Gallery categories
 const galleryCategories = [
@@ -116,21 +89,12 @@ const galleryImages = [
 ];
 
 const GalleryPage = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredImages, setFilteredImages] = useState(galleryImages);
   
-  // Handle carousel navigation
   useEffect(() => {
     // Scroll to top when page loads
     window.scrollTo(0, 0);
-    
-    // Auto-advance carousel
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
-    }, 5000);
-    
-    return () => clearInterval(interval);
   }, []);
   
   useEffect(() => {
@@ -142,150 +106,68 @@ const GalleryPage = () => {
     }
   }, [selectedCategory]);
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? carouselImages.length - 1 : prev - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
-  };
-
   return (
     <Layout>
-      {/* Hero Section with Carousel */}
-      <section className="relative pt-16 h-[80vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent z-10"></div>
-        
-        {/* Carousel */}
-        <div className="relative h-full">
-          {carouselImages.map((image, index) => (
-            <div 
-              key={image.id}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                index === currentSlide ? 'opacity-100' : 'opacity-0'
-              }`}
-            >
-              <img 
-                src={image.src} 
-                alt={image.alt} 
-                className="w-full h-full object-cover object-center"
-              />
-              
-              <div className="absolute inset-0 flex items-center justify-center z-20">
-                <div className="text-center text-white max-w-2xl px-4">
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold mb-4">Our Gallery</h1>
-                  <p className="text-xl mb-8 opacity-90">{image.caption}</p>
-                  <Button asChild className="bg-barber-gold hover:bg-barber-brown text-white px-8 py-6 rounded-sm">
-                    <Link to="/booking">Book Appointment</Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          ))}
-          
-          {/* Carousel Controls */}
-          <button 
-            onClick={prevSlide}
-            className="absolute top-1/2 left-4 z-20 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transform -translate-y-1/2"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          
-          <button 
-            onClick={nextSlide}
-            className="absolute top-1/2 right-4 z-20 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transform -translate-y-1/2"
-            aria-label="Next slide"
-          >
-            <ChevronRight size={24} />
-          </button>
-          
-          {/* Carousel Indicators */}
-          <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center space-x-2">
-            {carouselImages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentSlide ? 'bg-barber-gold' : 'bg-white/50'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              ></button>
-            ))}
-          </div>
+      {/* Page Header */}
+      <section className="pt-24 pb-12 bg-barber-charcoal text-white">
+        <div className="container-custom">
+          <h1 className="text-4xl md:text-5xl font-playfair font-bold mb-4">Our Gallery</h1>
+          <p className="text-lg opacity-90 max-w-2xl">
+            Browse our collection of premium haircuts, fades, and beard grooming styles
+          </p>
         </div>
       </section>
 
-      {/* Gallery Categories */}
-      <section className="py-16">
+      {/* Category Filter */}
+      <section className="py-8 bg-barber-cream">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4">Our Work Categories</h2>
-            <p className="text-barber-charcoal/80 max-w-2xl mx-auto">
-              Browse our collection of premium grooming styles and services
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div 
-              className={`bg-white shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border-t-2 border-barber-gold p-6 cursor-pointer ${
-                selectedCategory === "All" ? 'bg-barber-gold/10' : ''
-              }`}
+          <div className="flex flex-wrap gap-2 justify-center">
+            <button
               onClick={() => setSelectedCategory("All")}
+              className={`px-4 py-2 rounded-sm transition ${
+                selectedCategory === "All" 
+                ? "bg-barber-gold text-white" 
+                : "bg-white text-barber-charcoal hover:bg-barber-gold/10"
+              }`}
             >
-              <h3 className="text-xl font-playfair font-semibold mb-2">All Work</h3>
-              <p className="text-barber-charcoal/70 mb-4">View our complete collection of styles.</p>
-              <p className="text-sm text-barber-gold">{galleryImages.length} photos</p>
-            </div>
+              All
+            </button>
             
             {galleryCategories.map((category, index) => (
-              <div 
-                key={index} 
-                className={`bg-white shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border-t-2 border-barber-gold p-6 cursor-pointer ${
-                  selectedCategory === category.title ? 'bg-barber-gold/10' : ''
-                }`}
+              <button
+                key={index}
                 onClick={() => setSelectedCategory(category.title)}
+                className={`px-4 py-2 rounded-sm transition ${
+                  selectedCategory === category.title 
+                  ? "bg-barber-gold text-white" 
+                  : "bg-white text-barber-charcoal hover:bg-barber-gold/10"
+                }`}
               >
-                <h3 className="text-xl font-playfair font-semibold mb-2">{category.title}</h3>
-                <p className="text-barber-charcoal/70 mb-4">{category.description}</p>
-                <p className="text-sm text-barber-gold">{category.count} photos</p>
-              </div>
+                {category.title}
+              </button>
             ))}
           </div>
         </div>
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-16 bg-barber-cream">
+      <section className="py-12">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4">
-              {selectedCategory === "All" ? "Our Featured Work" : selectedCategory}
-            </h2>
-            <p className="text-barber-charcoal/80 max-w-2xl mx-auto">
-              Take a look at some of our recent haircuts and styles to get inspired for your next visit.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {filteredImages.map((image) => (
-              <div 
-                key={image.id} 
-                className="relative aspect-square rounded-sm overflow-hidden group hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <img 
-                  src={image.src} 
-                  alt={image.alt} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <div>
-                    <span className="text-xs text-barber-gold font-medium">{image.category}</span>
-                    <p className="text-white text-sm">{image.alt}</p>
-                  </div>
-                </div>
-              </div>
+              <Card key={image.id} className="overflow-hidden border-none transition-all duration-300 hover:shadow-lg">
+                <AspectRatio ratio={1 / 1}>
+                  <img 
+                    src={image.src} 
+                    alt={image.alt} 
+                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                    loading="lazy"
+                  />
+                </AspectRatio>
+                <CardContent className="p-3">
+                  <p className="text-sm font-medium text-barber-gold">{image.category}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
