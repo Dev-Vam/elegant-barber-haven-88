@@ -55,8 +55,8 @@ const services = [
     icon: <Wind className="text-barber-brown" size={32} />,
     title: "Lined Designs",
     description: "Custom hair designs with precision lines and patterns by our expert barbers, add personality to any haircut.",
-    price: "R30",
-    priceValue: 30,
+    price: "R20",
+    priceValue: 20,
     duration: "15 min",
     category: "styling"
   },
