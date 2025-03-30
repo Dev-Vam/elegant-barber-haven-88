@@ -34,7 +34,6 @@ const ContactPage = () => {
                     <h3 className="text-lg font-semibold mb-1">Visit Us</h3>
                     <p className="text-barber-charcoal/80">
                       599 Catherina Street<br />
-                      By Braai Mekka<br />
                       Pretoria, South Africa
                     </p>
                   </div>
