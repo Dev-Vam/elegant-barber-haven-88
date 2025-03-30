@@ -7,7 +7,7 @@ import { Scissors, Star, Award, Sparkles, Coffee, Wind, Palette, SlidersHorizont
 
 const services = [
   {
-    icon: <Award className="text-barber-gold" size={32} />,
+    icon: <Award className="text-barber-brown" size={32} />,
     title: "Hair Dye & Haircut",
     description: "Full color service with expert cutting and styling, available in all colors. Includes consultation and aftercare advice.",
     price: "R400",
@@ -16,7 +16,7 @@ const services = [
     category: "coloring"
   },
   {
-    icon: <Star className="text-barber-gold" size={32} />,
+    icon: <Star className="text-barber-brown" size={32} />,
     title: "Fade Cut",
     description: "Expert fade haircut with precision shaving for a clean, fresh look that transitions smoothly between lengths.",
     price: "R150",
@@ -25,16 +25,25 @@ const services = [
     category: "haircut"
   },
   {
-    icon: <Scissors className="text-barber-gold" size={32} />,
+    icon: <Palette className="text-barber-brown" size={32} />,
+    title: "Bald Shave & Beard Shave",
+    description: "Complete head and beard shave with hot towel treatment for the ultimate smooth, clean finish.",
+    price: "R75",
+    priceValue: 75,
+    duration: "45 min",
+    category: "shaving"
+  },
+  {
+    icon: <Scissors className="text-barber-brown" size={32} />,
     title: "Buzzcut",
     description: "Quick and clean buzzcut with consistent length all around using premium clippers for a low-maintenance style.",
     price: "R100",
     priceValue: 100,
-    duration: "30 min",
+    duration: "25 min",
     category: "haircut"
   },
   {
-    icon: <Coffee className="text-barber-gold" size={32} />,
+    icon: <Coffee className="text-barber-brown" size={32} />,
     title: "Crewcut",
     description: "Classic short cut that's slightly longer on top with tapered sides for a timeless, versatile look.",
     price: "R85",
@@ -43,25 +52,16 @@ const services = [
     category: "haircut"
   },
   {
-    icon: <Wind className="text-barber-gold" size={32} />,
+    icon: <Wind className="text-barber-brown" size={32} />,
     title: "Lined Designs",
     description: "Custom hair designs with precision lines and patterns by our expert barbers, add personality to any haircut.",
-    price: "R20",
-    priceValue: 20,
-    duration: "60 min",
+    price: "R30",
+    priceValue: 30,
+    duration: "15 min",
     category: "styling"
   },
   {
-    icon: <Palette className="text-barber-gold" size={32} />,
-    title: "Bald Shave & Beard Shave",
-    description: "Complete head and beard shave with hot towel treatment for the ultimate smooth, clean finish.",
-    price: "R60",
-    priceValue: 60,
-    duration: "45 min",
-    category: "shaving"
-  },
-  {
-    icon: <Coffee className="text-barber-gold" size={32} />,
+    icon: <Coffee className="text-barber-brown" size={32} />,
     title: "Beard Shave",
     description: "Beard shave with hot towel treatment for the ultimate smooth, clean finish.",
     price: "R30",
@@ -71,23 +71,25 @@ const services = [
   }
 ];
 
+// Sort services from highest to lowest price
+const sortedServices = [...services].sort((a, b) => b.priceValue - a.priceValue);
+
 const categories = ["all", "haircut", "shaving", "styling", "coloring"];
 
 const ServicesPage = () => {
   const [filter, setFilter] = useState("all");
-  const [filteredServices, setFilteredServices] = useState(services);
+  const [filteredServices, setFilteredServices] = useState(sortedServices);
   
   useEffect(() => {
     // Scroll to top when page loads
     window.scrollTo(0, 0);
     
     if (filter === "all") {
-      setFilteredServices([...services].sort((a, b) => b.priceValue - a.priceValue));
+      setFilteredServices([...sortedServices]);
     } else {
       setFilteredServices(
-        [...services]
+        [...sortedServices]
           .filter(service => service.category === filter)
-          .sort((a, b) => b.priceValue - a.priceValue)
       );
     }
   }, [filter]);
@@ -110,20 +112,20 @@ const ServicesPage = () => {
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4">Expert Grooming Services</h2>
-            <p className="text-barber-charcoal/80 max-w-2xl mx-auto">
+            <p className="text-barber-charcoal/90 max-w-2xl mx-auto">
               We offer a comprehensive range of premium services to keep you looking and feeling your best.
             </p>
             
             {/* Filter Controls */}
             <div className="flex flex-wrap justify-center items-center gap-3 mt-8">
-              <span className="flex items-center mr-2">
+              <span className="flex items-center mr-2 text-barber-charcoal">
                 <SlidersHorizontal size={18} className="mr-1" /> Filter:
               </span>
               {categories.map((category) => (
                 <Button 
                   key={category}
                   variant={filter === category ? "default" : "outline"} 
-                  className={filter === category ? "bg-barber-gold hover:bg-barber-brown" : "border-barber-gold text-barber-charcoal"}
+                  className={filter === category ? "bg-barber-brown hover:bg-barber-gold" : "border-barber-brown text-barber-charcoal"}
                   onClick={() => setFilter(category)}
                 >
                   {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -136,14 +138,14 @@ const ServicesPage = () => {
             {filteredServices.map((service, index) => (
               <div 
                 key={index} 
-                className="bg-white p-8 shadow-md hover:shadow-lg transition-shadow border-t-2 border-barber-gold transform hover:-translate-y-1 transition-transform duration-300"
+                className="bg-white p-8 shadow-md hover:shadow-lg transition-shadow border-t-2 border-barber-brown transform hover:-translate-y-1 transition-transform duration-300"
               >
                 <div className="mb-4">{service.icon}</div>
-                <h3 className="text-xl font-playfair font-semibold mb-2">{service.title}</h3>
-                <p className="text-barber-charcoal/70 mb-4">{service.description}</p>
+                <h3 className="text-xl font-playfair font-semibold mb-2 text-barber-charcoal">{service.title}</h3>
+                <p className="text-barber-charcoal/90 mb-4">{service.description}</p>
                 <div className="flex justify-between items-center pt-4 border-t border-gray-100">
-                  <p className="text-barber-gold font-playfair font-bold">{service.price}</p>
-                  <p className="text-sm text-barber-charcoal/60">{service.duration}</p>
+                  <p className="text-barber-brown font-playfair font-bold">{service.price}</p>
+                  <p className="text-sm text-barber-charcoal/90">{service.duration}</p>
                 </div>
               </div>
             ))}

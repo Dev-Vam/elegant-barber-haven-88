@@ -1,30 +1,30 @@
 
 import React from 'react';
-import { Scissors, Star, Award, Sparkles } from 'lucide-react';
+import { Scissors, Star, Award, Sparkles, Coffee, Wind, Palette } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const serviceData = [
   {
-    icon: <Award className="text-barber-gold" size={32} />,
+    icon: <Award className="text-barber-brown" size={32} />,
     title: "Hair Dye & Haircut",
     description: "Full color service with expert cutting and styling, available in all colors.",
     price: "R400"
   },
   {
-    icon: <Star className="text-barber-gold" size={32} />,
+    icon: <Star className="text-barber-brown" size={32} />,
     title: "Fade Cut",
     description: "Expert fade haircut with precision shaving for a clean, fresh look.",
     price: "R150"
   },
   {
-    icon: <Scissors className="text-barber-gold" size={32} />,
+    icon: <Scissors className="text-barber-brown" size={32} />,
     title: "Buzzcut",
     description: "Quick and clean buzzcut with consistent length all around using premium clippers.",
     price: "R100"
   },
   {
-    icon: <Sparkles className="text-barber-gold" size={32} />,
+    icon: <Sparkles className="text-barber-brown" size={32} />,
     title: "Lined Designs",
     description: "Custom hair designs with precision lines and patterns by our expert barbers.",
     price: "R20"
@@ -46,18 +46,18 @@ const Services = () => {
           {serviceData.map((service, index) => (
             <div 
               key={index} 
-              className="bg-white p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border-t-2 border-barber-gold"
+              className="bg-white p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border-t-2 border-barber-brown"
             >
               <div className="mb-4">{service.icon}</div>
-              <h3 className="text-xl font-playfair font-semibold mb-2">{service.title}</h3>
-              <p className="text-barber-charcoal/70 mb-4">{service.description}</p>
-              <p className="text-barber-gold font-playfair font-bold text-xl">From {service.price}</p>
+              <h3 className="text-xl font-playfair font-semibold mb-2 text-barber-charcoal">{service.title}</h3>
+              <p className="text-barber-charcoal/90 mb-4">{service.description}</p>
+              <p className="text-barber-brown font-playfair font-bold text-xl">From {service.price}</p>
             </div>
           ))}
         </div>
         
         <div className="text-center mt-12">
-          <Button asChild className="bg-white hover:bg-barber-gold hover:text-white text-barber-charcoal border border-barber-gold px-8 py-6 rounded-sm transition-all duration-300">
+          <Button asChild className="bg-barber-brown hover:bg-barber-gold text-white px-8 py-6 rounded-sm transition-all duration-300">
             <Link to="/services">View All Services</Link>
           </Button>
         </div>

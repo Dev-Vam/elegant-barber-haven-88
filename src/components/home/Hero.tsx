@@ -12,7 +12,7 @@ const Hero = () => {
   return (
     <section className="relative h-screen overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-barber-gold/10 to-barber-brown/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-barber-brown/30 to-barber-gold/20"></div>
       
       {/* Subtle pattern */}
       <div className="absolute inset-0 opacity-10" 
@@ -32,7 +32,7 @@ const Hero = () => {
             Experience premier grooming services in Pretoria's finest barber shop.
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-in">
-            <Button asChild className="bg-barber-gold hover:bg-barber-brown text-white px-8 py-6 rounded-sm">
+            <Button asChild className="bg-barber-brown hover:bg-barber-gold text-white px-8 py-6 rounded-sm">
               <Link to="/booking">Book Appointment</Link>
             </Button>
             <Button asChild variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-barber-charcoal px-8 py-6 rounded-sm transition-all duration-300">
