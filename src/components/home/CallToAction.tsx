@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 const CallToAction = () => {
   return (
     <section className="py-16 md:py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-barber-charcoal to-barber-brown opacity-90"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-barber-charcoal to-barber-brown opacity-95"></div>
       
       <div className="container-custom relative z-10">
         <div className="text-center text-white max-w-3xl mx-auto">

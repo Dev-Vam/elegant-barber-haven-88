@@ -11,8 +11,8 @@ const Hero = () => {
 
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-barber-brown/30 to-barber-gold/20"></div>
+      {/* Background gradient - updated to a more readable gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-barber-charcoal to-barber-brown/90"></div>
       
       {/* Subtle pattern */}
       <div className="absolute inset-0 opacity-10" 
