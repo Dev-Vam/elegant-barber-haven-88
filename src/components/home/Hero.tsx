@@ -35,7 +35,7 @@ const Hero = () => {
 
   return (
     <section className="relative h-screen overflow-hidden">
-      <Carousel className="h-full" opts={{ loop: true }} onSelect={(api) => setCurrentSlide(api.selectedScrollSnap())}>
+      <Carousel className="h-full" opts={{ loop: true }}>
         <CarouselContent className="h-full">
           {heroSlides.map((slide, index) => (
             <CarouselItem key={index} className="h-full">
@@ -100,15 +100,7 @@ const Hero = () => {
                 className={`h-2 rounded-full transition-all ${
                   currentSlide === index ? "w-8 bg-barber-gold" : "w-2 bg-white/50"
                 }`}
-                onClick={() => {
-                  const api = document.querySelector('.embla__container');
-                  if (api) {
-                    const emblaApi = document.querySelector('.embla__carousel')?.__embla__;
-                    if (emblaApi) {
-                      emblaApi.scrollTo(index);
-                    }
-                  }
-                }}
+                onClick={() => setCurrentSlide(index)}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
