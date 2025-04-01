@@ -43,8 +43,8 @@ const AboutPage = () => {
               <h2 className="text-3xl font-playfair font-bold mb-6">{language === 'en' ? 'Our Story' : 'Notre Histoire'}</h2>
               <p className="text-barber-charcoal/80 mb-4">
                 {language === 'en'
-                  ? 'Founded in 1992 by master barber Doudou Madoucha, KMD Pro Barber began as a small, dedicated space focused on premium grooming services. From those humble beginnings, we\'ve grown into Pretoria\'s premier destination for sophisticated men\'s grooming.'
-                  : 'Fondé en 1992 par le maître barbier Doudou Madoucha, KMD Pro Barber a commencé comme un petit espace dédié aux services de toilettage premium. Depuis ces humbles débuts, nous sommes devenus la destination première de Pretoria pour le toilettage sophistiqué des hommes.'}
+                  ? 'Founded in 1992 by master barber Doudou Madoucha, KMD Pro Barber began as a small, dedicated space focused on premium styling services. From those humble beginnings, we\'ve grown into Pretoria\'s premier destination for sophisticated men\'s styling.'
+                  : 'Fondé en 1992 par le maître barbier Doudou Madoucha, KMD Pro Barber a commencé comme un petit espace dédié aux services de coiffage premium. Depuis ces humbles débuts, nous sommes devenus la destination première de Pretoria pour le coiffage sophistiqué des hommes.'}
               </p>
               <p className="text-barber-charcoal/80 mb-4">
                 {language === 'en'
@@ -156,8 +156,8 @@ const AboutPage = () => {
           </h2>
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
             {language === 'en'
-              ? 'Join our community of satisfied clients and discover premium grooming services tailored to your unique style.'
-              : 'Rejoignez notre communauté de clients satisfaits et découvrez des services de toilettage premium adaptés à votre style unique.'}
+              ? 'Join our community of satisfied clients and discover premium styling services tailored to your unique style.'
+              : 'Rejoignez notre communauté de clients satisfaits et découvrez des services de coiffage premium adaptés à votre style unique.'}
           </p>
           <Button asChild className="bg-barber-gold hover:bg-white hover:text-barber-charcoal text-white px-8 py-6 rounded-sm">
             <Link to="/booking">

@@ -30,7 +30,7 @@ const Services = () => {
     {
       icon: <Sparkles className="text-barber-brown" size={32} />,
       title: "Lined Designs",
-      description: "Custom hair designs with precision lines and patterns by our expert barbers.",
+      description: "Custom hair designs with precision lines and patterns by our skilled barbers.",
       price: "R30"
     }
   ];
