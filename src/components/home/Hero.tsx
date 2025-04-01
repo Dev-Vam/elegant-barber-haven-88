@@ -2,8 +2,11 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   useEffect(() => {
     // Scroll to the top on component mount
     window.scrollTo(0, 0);
@@ -24,19 +27,19 @@ const Hero = () => {
       {/* Content */}
       <div className="container-custom relative z-10 flex flex-col justify-center h-full text-white">
         <div className="max-w-2xl animate-fade-in">
-          <p className="text-barber-gold font-medium mb-2 animate-fade-in">Where traditional barbering meets modern elegance.</p>
+          <p className="text-barber-gold font-medium mb-2 animate-fade-in">{t('hero.subtitle')}</p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair font-bold mb-4 animate-fade-in">
             KMD <span className="text-barber-gold">Pro</span> Barber
           </h1>
           <p className="text-lg md:text-xl opacity-90 mb-8 animate-fade-in">
-            Experience premier grooming services in Pretoria's finest barber shop.
+            {t('hero.experience')}
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-in">
             <Button asChild className="bg-barber-brown hover:bg-barber-gold text-white px-8 py-6 rounded-sm">
-              <Link to="/booking">Book Appointment</Link>
+              <Link to="/booking">{t('hero.bookAppointment')}</Link>
             </Button>
             <Button asChild variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-barber-charcoal px-8 py-6 rounded-sm transition-all duration-300">
-              <Link to="/services">Our Services</Link>
+              <Link to="/services">{t('hero.ourServices')}</Link>
             </Button>
           </div>
         </div>
