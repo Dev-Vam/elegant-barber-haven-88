@@ -3,19 +3,22 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
   
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Merch', path: '/merch' },
-    { name: 'Contact', path: '/contact' },
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.about'), path: '/about' },
+    { name: t('nav.services'), path: '/services' },
+    { name: t('nav.gallery'), path: '/gallery' },
+    { name: t('nav.merch'), path: '/merch' },
+    { name: t('nav.contact'), path: '/contact' },
   ];
 
   useEffect(() => {
@@ -55,13 +58,15 @@ const Navbar = () => {
               </Link>
             ))}
             <Button asChild className="btn-primary">
-              <Link to="/booking">Book Now</Link>
+              <Link to="/booking">{t('nav.bookNow')}</Link>
             </Button>
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Navigation Toggle */}
-          <div className="md:hidden">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
+          <div className="md:hidden flex items-center">
+            <LanguageSwitcher />
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu" className="ml-2">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -82,7 +87,7 @@ const Navbar = () => {
                 </Link>
               ))}
               <Button asChild className="btn-primary w-full">
-                <Link to="/booking" onClick={() => setIsMenuOpen(false)}>Book Now</Link>
+                <Link to="/booking" onClick={() => setIsMenuOpen(false)}>{t('nav.bookNow')}</Link>
               </Button>
             </div>
           </div>
