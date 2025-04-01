@@ -14,13 +14,12 @@ const LanguageSwitcher = () => {
   return (
     <Button 
       variant="ghost" 
-      size="icon" 
       onClick={toggleLanguage} 
-      className="w-10 h-10 rounded-full"
+      className="flex items-center space-x-1 px-2 h-10 rounded-full"
       title={language === 'en' ? 'Switch to French' : 'Passer à l\'anglais'}
     >
-      <Globe size={20} />
-      <span className="ml-1 text-xs font-medium">{language.toUpperCase()}</span>
+      <Globe size={18} className="text-barber-gold" />
+      <span className="text-xs font-medium">{language.toUpperCase()}</span>
     </Button>
   );
 };
