@@ -51,6 +51,8 @@ const translations: Record<Language, Record<string, string>> = {
     'home.address': 'Address',
     'home.hours': 'Hours',
     'home.contact': 'Contact',
+    'home.visitUs': 'Visit Us',
+    'home.closed': 'Closed',
 
     // Gallery page
     'gallery.title': 'Our Gallery',
@@ -71,6 +73,84 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Services
     'services.from': 'From',
+    'services.title': 'Our Services',
+    'services.subtitle': 'Premium Grooming Experiences',
+    'services.description': 'Discover our range of expert services designed for the modern gentleman who values quality and style.',
+    'services.haircuts': 'Haircuts',
+    'services.shaving': 'Shaving',
+    'services.styling': 'Styling',
+    'services.treatments': 'Treatments',
+    'services.book': 'Book Service',
+    'services.duration': 'Duration',
+    'services.minutes': 'minutes',
+    
+    // About
+    'about.title': 'About Us',
+    'about.subtitle': 'Our Story',
+    'about.description': 'Learn about KMD Pro Barber and our commitment to excellence in grooming.',
+    'about.ourStory': 'Our Story',
+    'about.storyDescription': 'Founded in 2015, KMD Pro Barber has been delivering premium grooming services to the gentlemen of Pretoria.',
+    'about.ourValues': 'Our Values',
+    'about.valuesDescription': 'We believe in quality, attention to detail, and exceptional customer service.',
+    'about.ourTeam': 'Our Team',
+    'about.teamDescription': 'Meet our team of skilled and passionate barbers who excel in their craft.',
+    
+    // Contact
+    'contact.title': 'Contact Us',
+    'contact.subtitle': 'Get In Touch',
+    'contact.description': 'Have a question or want to book an appointment? Reach out to us.',
+    'contact.name': 'Name',
+    'contact.email': 'Email',
+    'contact.message': 'Message',
+    'contact.phone': 'Phone',
+    'contact.send': 'Send Message',
+    'contact.findUs': 'Find Us',
+    'contact.reachUs': 'Reach us at',
+    
+    // Booking
+    'booking.title': 'Book Appointment',
+    'booking.subtitle': 'Reserve Your Spot',
+    'booking.description': 'Schedule your next grooming experience with our expert barbers.',
+    'booking.service': 'Service',
+    'booking.date': 'Date',
+    'booking.time': 'Time',
+    'booking.barber': 'Barber',
+    'booking.confirm': 'Confirm Booking',
+    'booking.yourInfo': 'Your Information',
+    'booking.selectService': 'Select Service',
+    'booking.selectBarber': 'Select Barber',
+    'booking.selectDate': 'Select Date',
+    'booking.selectTime': 'Select Time',
+    'booking.available': 'Available',
+    'booking.booked': 'Booked',
+    
+    // Merchandise
+    'merch.title': 'Merchandise Store',
+    'merch.subtitle': 'Premium Quality Products',
+    'merch.description': 'Premium quality products for the modern gentleman',
+    'merch.seeStore': 'See Printify Store',
+    'merch.freeShipping': 'Free shipping on orders over R100',
+    'merch.exclusiveDesigns': 'Exclusive KMD Pro Barber designs',
+    'merch.securePayment': 'Secure online payment',
+    'merch.shopCollection': 'Shop Our Collection',
+    'merch.shopDescription': 'Quality merchandise that reflects our premium barbershop experience. Each item is carefully selected and designed with our signature elegant style.',
+    'merch.quality': 'Quality You Can Trust',
+    'merch.qualityDescription': 'We\'ve partnered with Printify to ensure that all our merchandise meets the highest standards of quality. Each item is printed on-demand and shipped directly to you.',
+    'merch.designDescription': 'Our designs reflect the elegant style and attention to detail that KMD Pro Barber is known for, allowing you to bring a piece of our premium experience into your everyday life.',
+    'merch.materials': 'Premium quality materials',
+    'merch.eco': 'Eco-friendly production processes',
+    'merch.comfortable': 'Comfortable, durable designs',
+    'merch.satisfaction': 'Satisfaction guaranteed',
+    'merch.contactBulk': 'Contact for Bulk Orders',
+    'merch.takeHome': 'Take the KMD Pro Barber Experience Home',
+    'merch.browseCollection': 'Browse our collection of premium merchandise and find the perfect addition to your style. From grooming products to apparel, we\'ve got you covered.',
+    'merch.visitStore': 'Visit Our Printify Store',
+    
+    // 404 Page
+    'notFound.title': '404',
+    'notFound.message': 'We couldn\'t find the page you\'re looking for.',
+    'notFound.home': 'Return to Home',
+    'notFound.contact': 'Contact Us'
   },
   fr: {
     // Navigation
@@ -103,6 +183,8 @@ const translations: Record<Language, Record<string, string>> = {
     'home.address': 'Adresse',
     'home.hours': 'Horaires',
     'home.contact': 'Contact',
+    'home.visitUs': 'Visitez-Nous',
+    'home.closed': 'Fermé',
 
     // Gallery page
     'gallery.title': 'Notre Galerie',
@@ -123,6 +205,84 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Services
     'services.from': 'À partir de',
+    'services.title': 'Nos Services',
+    'services.subtitle': 'Expériences de Toilettage Premium',
+    'services.description': 'Découvrez notre gamme de services d\'experts conçus pour le gentleman moderne qui valorise la qualité et le style.',
+    'services.haircuts': 'Coupes de Cheveux',
+    'services.shaving': 'Rasage',
+    'services.styling': 'Coiffage',
+    'services.treatments': 'Traitements',
+    'services.book': 'Réserver',
+    'services.duration': 'Durée',
+    'services.minutes': 'minutes',
+    
+    // About
+    'about.title': 'À Propos de Nous',
+    'about.subtitle': 'Notre Histoire',
+    'about.description': 'Découvrez KMD Pro Barber et notre engagement envers l\'excellence en matière de toilettage.',
+    'about.ourStory': 'Notre Histoire',
+    'about.storyDescription': 'Fondé en 2015, KMD Pro Barber offre des services de toilettage premium aux gentlemen de Pretoria.',
+    'about.ourValues': 'Nos Valeurs',
+    'about.valuesDescription': 'Nous croyons en la qualité, l\'attention aux détails et un service client exceptionnel.',
+    'about.ourTeam': 'Notre Équipe',
+    'about.teamDescription': 'Rencontrez notre équipe de barbiers qualifiés et passionnés qui excellent dans leur métier.',
+    
+    // Contact
+    'contact.title': 'Contactez-Nous',
+    'contact.subtitle': 'Entrer en Contact',
+    'contact.description': 'Vous avez une question ou souhaitez prendre rendez-vous? Contactez-nous.',
+    'contact.name': 'Nom',
+    'contact.email': 'Email',
+    'contact.message': 'Message',
+    'contact.phone': 'Téléphone',
+    'contact.send': 'Envoyer le Message',
+    'contact.findUs': 'Trouvez-nous',
+    'contact.reachUs': 'Contactez-nous au',
+    
+    // Booking
+    'booking.title': 'Réserver un Rendez-vous',
+    'booking.subtitle': 'Réservez Votre Place',
+    'booking.description': 'Planifiez votre prochaine expérience de toilettage avec nos barbiers experts.',
+    'booking.service': 'Service',
+    'booking.date': 'Date',
+    'booking.time': 'Heure',
+    'booking.barber': 'Barbier',
+    'booking.confirm': 'Confirmer la Réservation',
+    'booking.yourInfo': 'Vos Informations',
+    'booking.selectService': 'Sélectionner le Service',
+    'booking.selectBarber': 'Sélectionner le Barbier',
+    'booking.selectDate': 'Sélectionner la Date',
+    'booking.selectTime': 'Sélectionner l\'Heure',
+    'booking.available': 'Disponible',
+    'booking.booked': 'Réservé',
+    
+    // Merchandise
+    'merch.title': 'Boutique de Marchandise',
+    'merch.subtitle': 'Produits de Qualité Premium',
+    'merch.description': 'Produits de qualité premium pour le gentleman moderne',
+    'merch.seeStore': 'Voir la Boutique Printify',
+    'merch.freeShipping': 'Livraison gratuite pour les commandes de plus de R100',
+    'merch.exclusiveDesigns': 'Designs exclusifs KMD Pro Barber',
+    'merch.securePayment': 'Paiement en ligne sécurisé',
+    'merch.shopCollection': 'Découvrez Notre Collection',
+    'merch.shopDescription': 'Des articles de qualité qui reflètent notre expérience premium de salon de coiffure. Chaque article est soigneusement sélectionné et conçu avec notre style élégant signature.',
+    'merch.quality': 'Une Qualité à Laquelle Vous Pouvez Faire Confiance',
+    'merch.qualityDescription': 'Nous nous sommes associés à Printify pour garantir que tous nos produits répondent aux normes de qualité les plus élevées. Chaque article est imprimé à la demande et expédié directement chez vous.',
+    'merch.designDescription': 'Nos designs reflètent le style élégant et l\'attention aux détails qui caractérisent KMD Pro Barber, vous permettant d\'apporter un peu de notre expérience premium dans votre vie quotidienne.',
+    'merch.materials': 'Matériaux de qualité premium',
+    'merch.eco': 'Processus de production écologiques',
+    'merch.comfortable': 'Designs confortables et durables',
+    'merch.satisfaction': 'Satisfaction garantie',
+    'merch.contactBulk': 'Contact pour Commandes en Gros',
+    'merch.takeHome': 'Ramenez l\'Expérience KMD Pro Barber Chez Vous',
+    'merch.browseCollection': 'Parcourez notre collection d\'articles premium et trouvez le complément parfait à votre style. Des produits de toilettage aux vêtements, nous avons ce qu\'il vous faut.',
+    'merch.visitStore': 'Visitez Notre Boutique Printify',
+    
+    // 404 Page
+    'notFound.title': '404',
+    'notFound.message': 'Nous n\'avons pas pu trouver la page que vous cherchez.',
+    'notFound.home': 'Retour à l\'Accueil',
+    'notFound.contact': 'Contactez-Nous'
   },
 };
 
