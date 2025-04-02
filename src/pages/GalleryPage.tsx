@@ -75,7 +75,7 @@ const galleryImages = [
   },
   {
     id: 5,
-    src: "https://images.unsplash.com/photo-1593702288056-f5834dbea6c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    src: "https://th.bing.com/th/id/OIP.iKWVnDHEKn53PeL95OlsrgHaHa?w=195&h=195&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     category: "Hair Designs",
     categoryFr: "Designs Capillaires",
     alt: "Hair design pattern",
@@ -104,14 +104,6 @@ const galleryImages = [
     categoryFr: "Coupes de Cheveux",
     alt: "Professional haircut",
     altFr: "Coupe de cheveux professionnelle"
-  },
-  {
-    id: 9,
-    src: "https://images.unsplash.com/photo-1567894340315-735d7c361db0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    category: "Hair Designs",
-    categoryFr: "Designs Capillaires",
-    alt: "Creative hair design",
-    altFr: "Design capillaire créatif"
   }
 ];
 
