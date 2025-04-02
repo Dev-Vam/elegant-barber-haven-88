@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -11,7 +10,7 @@ import {
   CarouselNext
 } from "@/components/ui/carousel";
 
-// Hero background images with more variety
+// Hero background images - reduced to only 3
 const heroImages = [
   {
     src: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop",
@@ -24,14 +23,6 @@ const heroImages = [
   {
     src: "https://images.unsplash.com/photo-1599351431613-18ef1fdd9e8e?q=80&w=2088&auto=format&fit=crop",
     alt: "Close-up of professional barber tools"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1622288432450-277d0fef9a5f?q=80&w=2070&auto=format&fit=crop",
-    alt: "Classic barber chair in elegant shop"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1470&auto=format&fit=crop",
-    alt: "Barber giving client a haircut"
   }
 ];
 
