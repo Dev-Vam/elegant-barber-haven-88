@@ -38,7 +38,15 @@ const Hero = () => {
   return (
     <section className="relative h-screen overflow-hidden">
       {/* Hero Carousel */}
-      <Carousel opts={{ loop: true, duration: 40 }} className="w-full h-full">
+      <Carousel 
+        opts={{ 
+          loop: true, 
+          duration: 40,
+          autoplay: true,
+          delay: 1500, // Auto-slide every 1.5 seconds 
+        }} 
+        className="w-full h-full"
+      >
         <CarouselContent className="h-full">
           {heroImages.map((image, index) => (
             <CarouselItem key={index} className="h-full">
