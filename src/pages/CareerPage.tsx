@@ -2,7 +2,7 @@
 import React from 'react';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/context/LanguageContext';
-import { Calendar, Award, Users, Scissors, MapPin } from 'lucide-react';
+import { Calendar, Award, Users, Laptop, MapPin, Code, Server, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -12,7 +12,7 @@ const CareerPage = () => {
   const { t, language } = useLanguage();
   const { toast } = useToast();
   
-  // Career benefits data
+  // IT Support benefits data
   const benefits = [
     {
       icon: <Calendar className="text-barber-gold w-10 h-10" />,
@@ -32,34 +32,34 @@ const CareerPage = () => {
       icon: <Users className="text-barber-gold w-10 h-10" />,
       title: language === 'en' ? "Amazing Team" : "Équipe Formidable",
       description: language === 'en' 
-        ? "Join our diverse and talented community of barbers" 
-        : "Rejoignez notre communauté diversifiée et talentueuse de barbiers"
+        ? "Join our diverse and talented community of tech professionals" 
+        : "Rejoignez notre communauté diversifiée et talentueuse de professionnels de la technologie"
     },
     {
-      icon: <Scissors className="text-barber-gold w-10 h-10" />,
-      title: language === 'en' ? "Creative Freedom" : "Liberté Créative",
+      icon: <Laptop className="text-barber-gold w-10 h-10" />,
+      title: language === 'en' ? "Modern Equipment" : "Équipement Moderne",
       description: language === 'en' 
-        ? "Express your artistic talent and barbering style" 
-        : "Exprimez votre talent artistique et votre style de coiffure"
+        ? "Work with the latest technology and tools" 
+        : "Travaillez avec les dernières technologies et outils"
     }
   ];
 
-  // Current job openings
+  // Current IT job openings
   const openings = [
     {
-      position: language === 'en' ? "Senior Barber" : "Barbier Senior",
+      position: language === 'en' ? "Senior IT Support Specialist" : "Spécialiste Senior en Support Informatique",
       type: language === 'en' ? "Full-time" : "Temps plein",
       experience: language === 'en' ? "Minimum 3 years" : "Minimum 3 ans"
     },
     {
-      position: language === 'en' ? "Junior Barber" : "Barbier Junior",
+      position: language === 'en' ? "IT Helpdesk Technician" : "Technicien Helpdesk IT",
       type: language === 'en' ? "Full-time / Part-time" : "Temps plein / Temps partiel",
       experience: language === 'en' ? "Entry level welcome" : "Débutant bienvenu"
     },
     {
-      position: language === 'en' ? "Shop Manager" : "Gérant de Boutique",
+      position: language === 'en' ? "IT Systems Administrator" : "Administrateur Systèmes IT",
       type: language === 'en' ? "Full-time" : "Temps plein",
-      experience: language === 'en' ? "Minimum 5 years in barbering" : "Minimum 5 ans dans la coiffure"
+      experience: language === 'en' ? "Minimum 5 years in IT" : "Minimum 5 ans en informatique"
     }
   ];
 
@@ -80,12 +80,12 @@ const CareerPage = () => {
       <section className="bg-barber-charcoal text-white py-24 md:py-32">
         <div className="container-custom text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold mb-6">
-            {language === 'en' ? "Join Our Team" : "Rejoignez Notre Équipe"}
+            {language === 'en' ? "IT Support Careers" : "Carrières en Support Informatique"}
           </h1>
           <p className="text-xl max-w-3xl mx-auto mb-8">
             {language === 'en' 
-              ? "Become part of the KMD Pro Barber family and build your career with us" 
-              : "Devenez membre de la famille KMD Pro Barber et construisez votre carrière avec nous"}
+              ? "Join the KMD Pro Barber tech team and build your IT career with us" 
+              : "Rejoignez l'équipe technique de KMD Pro Barber et construisez votre carrière informatique avec nous"}
           </p>
           <div className="flex justify-center">
             <Button 
@@ -110,8 +110,8 @@ const CareerPage = () => {
             </h2>
             <p className="text-barber-charcoal/80 max-w-2xl mx-auto">
               {language === 'en' 
-                ? "At KMD Pro Barber, we value talent, creativity, and dedication. Established in 1992, we've built a reputation for excellence and innovation in the barbering industry." 
-                : "Chez KMD Pro Barber, nous valorisons le talent, la créativité et le dévouement. Établis en 1992, nous avons bâti une réputation d'excellence et d'innovation dans l'industrie de la coiffure."}
+                ? "At KMD Pro Barber, we value technical expertise, problem-solving, and dedication. Established in 1992, we've built a reputation for excellence and innovation, and our IT team is critical to our success." 
+                : "Chez KMD Pro Barber, nous valorisons l'expertise technique, la résolution de problèmes et le dévouement. Établis en 1992, nous avons bâti une réputation d'excellence et d'innovation, et notre équipe informatique est essentielle à notre succès."}
             </p>
           </div>
           
@@ -131,8 +131,55 @@ const CareerPage = () => {
         </div>
       </section>
 
-      {/* Current Openings */}
+      {/* Technical Skills We Value */}
       <section className="py-16 bg-barber-cream">
+        <div className="container-custom">
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-10 text-center">
+            {language === 'en' ? "Technical Skills We Value" : "Compétences Techniques Que Nous Valorisons"}
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="bg-white p-6 text-center shadow-md rounded-sm">
+              <Code className="mx-auto mb-4 text-barber-gold w-12 h-12" />
+              <h3 className="text-xl font-playfair font-semibold mb-2">
+                {language === 'en' ? "Technical Troubleshooting" : "Dépannage Technique"}
+              </h3>
+              <p className="text-barber-charcoal/80">
+                {language === 'en' 
+                  ? "Strong problem-solving skills and ability to resolve technical issues efficiently" 
+                  : "Solides compétences en résolution de problèmes et capacité à résoudre efficacement les problèmes techniques"}
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 text-center shadow-md rounded-sm">
+              <Server className="mx-auto mb-4 text-barber-gold w-12 h-12" />
+              <h3 className="text-xl font-playfair font-semibold mb-2">
+                {language === 'en' ? "Network & Systems" : "Réseaux & Systèmes"}
+              </h3>
+              <p className="text-barber-charcoal/80">
+                {language === 'en' 
+                  ? "Knowledge of networking, operating systems, and hardware maintenance" 
+                  : "Connaissance des réseaux, des systèmes d'exploitation et de la maintenance matérielle"}
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 text-center shadow-md rounded-sm">
+              <ShieldCheck className="mx-auto mb-4 text-barber-gold w-12 h-12" />
+              <h3 className="text-xl font-playfair font-semibold mb-2">
+                {language === 'en' ? "Security & Best Practices" : "Sécurité & Bonnes Pratiques"}
+              </h3>
+              <p className="text-barber-charcoal/80">
+                {language === 'en' 
+                  ? "Understanding of cybersecurity principles and IT best practices" 
+                  : "Compréhension des principes de cybersécurité et des meilleures pratiques informatiques"}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Current Openings */}
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-10 text-center">
             {language === 'en' ? "Current Openings" : "Postes Disponibles"}
@@ -140,7 +187,7 @@ const CareerPage = () => {
           
           <div className="space-y-6 max-w-4xl mx-auto">
             {openings.map((job, index) => (
-              <div key={index} className="bg-white p-6 md:p-8 shadow-md border-l-4 border-barber-gold">
+              <div key={index} className="bg-barber-cream p-6 md:p-8 shadow-md border-l-4 border-barber-gold">
                 <div className="md:flex md:justify-between md:items-center">
                   <div>
                     <h3 className="text-2xl font-playfair font-bold text-barber-charcoal mb-2">{job.position}</h3>
@@ -176,14 +223,14 @@ const CareerPage = () => {
       </section>
 
       {/* Application Form */}
-      <section id="apply" className="py-16 bg-white">
+      <section id="apply" className="py-16 bg-barber-cream">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-10 text-center">
               {language === 'en' ? "Apply Now" : "Postuler Maintenant"}
             </h2>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 shadow-md rounded-sm">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="fullName" className="block text-sm font-medium text-barber-charcoal mb-1">
@@ -216,9 +263,9 @@ const CareerPage = () => {
                     required
                   >
                     <option value="">{language === 'en' ? "Select position" : "Sélectionner un poste"}</option>
-                    <option value="senior-barber">{language === 'en' ? "Senior Barber" : "Barbier Senior"}</option>
-                    <option value="junior-barber">{language === 'en' ? "Junior Barber" : "Barbier Junior"}</option>
-                    <option value="shop-manager">{language === 'en' ? "Shop Manager" : "Gérant de Boutique"}</option>
+                    <option value="senior-specialist">{language === 'en' ? "Senior IT Support Specialist" : "Spécialiste Senior en Support Informatique"}</option>
+                    <option value="helpdesk">{language === 'en' ? "IT Helpdesk Technician" : "Technicien Helpdesk IT"}</option>
+                    <option value="sysadmin">{language === 'en' ? "IT Systems Administrator" : "Administrateur Systèmes IT"}</option>
                     <option value="other">{language === 'en' ? "Other" : "Autre"}</option>
                   </select>
                 </div>
@@ -232,15 +279,29 @@ const CareerPage = () => {
               </div>
               
               <div>
+                <label htmlFor="skills" className="block text-sm font-medium text-barber-charcoal mb-1">
+                  {language === 'en' ? "Technical Skills" : "Compétences Techniques"}*
+                </label>
+                <Textarea 
+                  id="skills" 
+                  rows={3} 
+                  placeholder={language === 'en' 
+                    ? "List your relevant technical skills and certifications..." 
+                    : "Listez vos compétences techniques et certifications pertinentes..."}
+                  required
+                />
+              </div>
+              
+              <div>
                 <label htmlFor="message" className="block text-sm font-medium text-barber-charcoal mb-1">
                   {language === 'en' ? "Tell us about yourself" : "Parlez-nous de vous"}*
                 </label>
                 <Textarea 
                   id="message" 
-                  rows={5} 
+                  rows={4} 
                   placeholder={language === 'en' 
-                    ? "Your skills, experience, and why you want to join our team..." 
-                    : "Vos compétences, expérience et pourquoi vous souhaitez rejoindre notre équipe..."}
+                    ? "Your experience, problem-solving approach, and why you want to join our team..." 
+                    : "Votre expérience, votre approche de résolution de problèmes et pourquoi vous souhaitez rejoindre notre équipe..."}
                   required
                 />
               </div>
