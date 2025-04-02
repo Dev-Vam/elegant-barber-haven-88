@@ -19,6 +19,7 @@ const Navbar = () => {
     { name: t('nav.gallery'), path: '/gallery' },
     { name: t('nav.merch'), path: '/merch' },
     { name: t('nav.contact'), path: '/contact' },
+    { name: t('nav.careers'), path: '/careers' },
   ];
 
   useEffect(() => {

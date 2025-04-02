@@ -13,6 +13,7 @@ import GalleryPage from "./pages/GalleryPage";
 import ContactPage from "./pages/ContactPage";
 import BookingPage from "./pages/BookingPage";
 import MerchStore from "./pages/MerchStore";
+import CareerPage from "./pages/CareerPage";
 import NotFound from "./pages/NotFound";
 
 // Configure query client with performance settings
@@ -42,6 +43,7 @@ const App = () => (
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/booking" element={<BookingPage />} />
             <Route path="/merch" element={<MerchStore />} />
+            <Route path="/careers" element={<CareerPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
