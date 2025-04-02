@@ -28,6 +28,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.merch': 'Merch',
     'nav.contact': 'Contact',
     'nav.bookNow': 'Book Now',
+    'nav.careers': 'Careers',
 
     // Hero
     'hero.subtitle': 'Where traditional barbering meets modern elegance.',
@@ -192,7 +193,8 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.merch': 'Boutique',
     'nav.contact': 'Contact',
     'nav.bookNow': 'Réserver',
-
+    'nav.careers': 'Carrières',
+    
     // Hero
     'hero.subtitle': 'Où l\'art traditionnel du barbier rencontre l\'élégance moderne.',
     'hero.experience': 'Découvrez des services de coiffure premium dans le meilleur salon de coiffure de Pretoria.',
