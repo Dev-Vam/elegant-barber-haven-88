@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/context/LanguageContext';
@@ -10,6 +10,7 @@ import {
   CarouselPrevious,
   CarouselNext
 } from "@/components/ui/carousel";
+import useEmblaCarousel from 'embla-carousel-react';
 
 // Hero background images - all 3 verified working
 const heroImages = [
@@ -29,21 +30,37 @@ const heroImages = [
 
 const Hero = () => {
   const { t } = useLanguage();
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 40 });
+
+  // Auto-scroll function with 0.3 second interval
+  const autoScroll = useCallback(() => {
+    if (!emblaApi) return;
+    emblaApi.scrollNext();
+  }, [emblaApi]);
 
   useEffect(() => {
     // Scroll to the top on component mount
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    if (!emblaApi) return;
+    
+    // Set up the auto-scroll interval with 0.3 second delay
+    const intervalId = setInterval(autoScroll, 300); // 0.3 seconds
+    
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(intervalId);
+  }, [emblaApi, autoScroll]);
+
   return (
     <section className="relative h-screen overflow-hidden">
       {/* Hero Carousel */}
       <Carousel 
+        ref={emblaRef}
         opts={{ 
           loop: true, 
           duration: 40,
-          autoplay: true,
-          delay: 1500, // Auto-slide every 1.5 seconds 
         }} 
         className="w-full h-full"
       >
