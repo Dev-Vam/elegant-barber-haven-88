@@ -89,19 +89,19 @@ const Hero = () => {
                 
                 {/* Content - centered in the slide */}
                 <div className="absolute inset-0 container-custom flex flex-col justify-center items-start z-10">
-                  <div className={`${isMobile ? 'max-w-full px-4' : 'max-w-2xl'} animate-fade-in`}>
+                  <div className="max-w-2xl animate-fade-in">
                     <p className="text-barber-gold font-medium mb-2 animate-fade-in">{t('hero.subtitle')}</p>
-                    <h1 className="text-3xl md:text-6xl lg:text-7xl font-playfair font-bold mb-4 animate-fade-in text-white">
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair font-bold mb-4 animate-fade-in text-white">
                       KMD <span className="text-barber-gold">Pro</span> Barber
                     </h1>
-                    <p className="text-base md:text-xl opacity-90 mb-6 md:mb-8 animate-fade-in text-white">
+                    <p className="text-lg md:text-xl opacity-90 mb-8 animate-fade-in text-white">
                       {t('hero.experience')}
                     </p>
-                    <div className="flex flex-wrap gap-3 md:gap-4 animate-fade-in">
-                      <Button asChild className="bg-barber-brown hover:bg-barber-gold text-white px-4 md:px-8 py-4 md:py-6 rounded-sm text-sm md:text-base">
+                    <div className="flex flex-wrap gap-4 animate-fade-in">
+                      <Button asChild className="bg-barber-brown hover:bg-barber-gold text-white px-8 py-6 rounded-sm">
                         <Link to="/booking">{t('hero.bookAppointment')}</Link>
                       </Button>
-                      <Button asChild variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-barber-charcoal px-4 md:px-8 py-4 md:py-6 rounded-sm text-sm md:text-base transition-all duration-300">
+                      <Button asChild variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-barber-charcoal px-8 py-6 rounded-sm transition-all duration-300">
                         <Link to="/services">{t('hero.ourServices')}</Link>
                       </Button>
                     </div>
@@ -112,13 +112,11 @@ const Hero = () => {
           ))}
         </CarouselContent>
         
-        {/* Carousel Controls - Hide on mobile */}
-        {!isMobile && (
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
-            <CarouselPrevious className="relative left-0 translate-x-0 translate-y-0 bg-white/20 hover:bg-white/30 border-none text-white h-10 w-10" />
-            <CarouselNext className="relative right-0 translate-x-0 translate-y-0 bg-white/20 hover:bg-white/30 border-none text-white h-10 w-10" />
-          </div>
-        )}
+        {/* Carousel Controls - Show on all devices */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
+          <CarouselPrevious className="relative left-0 translate-x-0 translate-y-0 bg-white/20 hover:bg-white/30 border-none text-white h-10 w-10" />
+          <CarouselNext className="relative right-0 translate-x-0 translate-y-0 bg-white/20 hover:bg-white/30 border-none text-white h-10 w-10" />
+        </div>
         
         {/* Decorative element at bottom */}
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent z-10"></div>
