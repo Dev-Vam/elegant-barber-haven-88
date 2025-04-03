@@ -54,7 +54,7 @@ const Hero = () => {
   useEffect(() => {
     if (!emblaApi) return;
     
-    // Set up the auto-scroll interval with 3 second delay (slowed down from 0.3)
+    // Set up the auto-scroll interval with 3 second delay
     const intervalId = setInterval(autoScroll, 3000);
     
     // Clean up the interval when the component unmounts
@@ -90,21 +90,21 @@ const Hero = () => {
                     }}
                   ></div>
                   
-                  {/* Content - centered in the slide */}
-                  <div className="absolute inset-0 container-custom flex flex-col justify-center items-start z-10">
-                    <div className={`${isMobile ? 'max-w-full' : 'max-w-2xl'} animate-fade-in`}>
-                      <p className="text-barber-gold font-medium mb-2 animate-fade-in">{t('hero.subtitle')}</p>
-                      <h1 className={`${isMobile ? 'text-3xl' : 'text-4xl md:text-6xl lg:text-7xl'} font-playfair font-bold mb-4 animate-fade-in text-white`}>
+                  {/* Content - with improved spacing */}
+                  <div className="absolute inset-0 container-custom flex flex-col justify-center items-start z-10 px-6 md:px-10">
+                    <div className={`${isMobile ? 'max-w-full' : 'max-w-2xl'} space-y-4 md:space-y-6`}>
+                      <p className="text-barber-gold font-medium animate-fade-in">{t('hero.subtitle')}</p>
+                      <h1 className={`${isMobile ? 'text-3xl' : 'text-4xl md:text-5xl lg:text-6xl'} font-playfair font-bold animate-fade-in text-white`}>
                         KMD <span className="text-barber-gold">Pro</span> Barber
                       </h1>
-                      <p className={`${isMobile ? 'text-base mb-6' : 'text-lg md:text-xl mb-8'} opacity-90 animate-fade-in text-white`}>
-                        {t('hero.experience')}
+                      <p className={`${isMobile ? 'text-base' : 'text-lg md:text-xl'} opacity-90 animate-fade-in text-white max-w-lg`}>
+                        Elevating the art of grooming with precision cuts, classic shaves, and a premium barbershop experience for the modern gentleman.
                       </p>
-                      <div className={`flex flex-wrap ${isMobile ? 'gap-3' : 'gap-4'} animate-fade-in`}>
-                        <Button asChild className={`bg-barber-brown hover:bg-barber-gold text-white ${isMobile ? 'text-sm px-4 py-3' : 'px-8 py-6'} rounded-sm`}>
+                      <div className={`flex flex-wrap ${isMobile ? 'gap-3 pt-2' : 'gap-4 pt-4'} animate-fade-in`}>
+                        <Button asChild className={`bg-barber-brown hover:bg-barber-gold text-white ${isMobile ? 'text-sm px-4 py-2' : 'px-6 py-2.5'} rounded-sm`}>
                           <Link to="/booking">{t('hero.bookAppointment')}</Link>
                         </Button>
-                        <Button asChild variant="outline" className={`bg-white/10 border-white text-white hover:bg-white hover:text-barber-charcoal ${isMobile ? 'text-sm px-4 py-3' : 'px-8 py-6'} rounded-sm transition-all duration-300`}>
+                        <Button asChild variant="outline" className={`bg-white/10 border-white text-white hover:bg-white hover:text-barber-charcoal ${isMobile ? 'text-sm px-4 py-2' : 'px-6 py-2.5'} rounded-sm transition-all duration-300`}>
                           <Link to="/services">{t('hero.ourServices')}</Link>
                         </Button>
                       </div>
@@ -115,14 +115,14 @@ const Hero = () => {
             ))}
           </CarouselContent>
           
-          {/* Carousel Controls - adapted for mobile */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
+          {/* Carousel Controls - positioned at bottom */}
+          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
             <CarouselPrevious className={`relative left-0 translate-x-0 translate-y-0 bg-white/20 hover:bg-white/30 border-none text-white ${isMobile ? 'h-8 w-8' : 'h-10 w-10'}`} />
             <CarouselNext className={`relative right-0 translate-x-0 translate-y-0 bg-white/20 hover:bg-white/30 border-none text-white ${isMobile ? 'h-8 w-8' : 'h-10 w-10'}`} />
           </div>
           
           {/* Decorative element at bottom */}
-          <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent z-10"></div>
+          <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent z-10"></div>
         </Carousel>
       </div>
     </section>
