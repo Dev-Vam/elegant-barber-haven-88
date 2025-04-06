@@ -73,14 +73,12 @@ const Hero = () => {
             {heroImages.map((image, index) => (
               <CarouselItem key={index} className="h-full w-full">
                 <div className="relative w-full h-full">
-                  {/* Background image - updated to ensure proper cropping and fitting */}
-                  <div className="absolute inset-0 overflow-hidden">
-                    <img 
-                      src={image.src} 
-                      alt={image.alt}
-                      className="w-full h-full object-cover object-center"
-                    />
-                  </div>
+                  {/* Background image */}
+                  <img 
+                    src={image.src} 
+                    alt={image.alt} 
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                  />
                   
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-r from-barber-charcoal/60 to-barber-brown/60"></div>
@@ -92,7 +90,7 @@ const Hero = () => {
                     }}
                   ></div>
                   
-                  {/* Content - with improved spacing */}
+                  {/* Content */}
                   <div className="absolute inset-0 container-custom flex flex-col justify-center items-start z-10 px-6 md:px-10">
                     <div className={`${isMobile ? 'max-w-full' : 'max-w-2xl'} space-y-4 md:space-y-6`}>
                       <p className="text-barber-gold font-medium animate-fade-in">{t('hero.subtitle')}</p>
