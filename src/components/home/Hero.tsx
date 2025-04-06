@@ -73,12 +73,14 @@ const Hero = () => {
             {heroImages.map((image, index) => (
               <CarouselItem key={index} className="h-full w-full">
                 <div className="relative w-full h-full">
-                  {/* Background image */}
-                  <img 
-                    src={image.src} 
-                    alt={image.alt} 
-                    className="w-full h-full object-cover"
-                  />
+                  {/* Background image - updated to ensure proper cropping and fitting */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    <img 
+                      src={image.src} 
+                      alt={image.alt}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </div>
                   
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-r from-barber-charcoal/60 to-barber-brown/60"></div>
