@@ -47,7 +47,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative h-screen min-h-[500px] overflow-hidden">
       <Carousel
         opts={{
           loop: true,
@@ -59,12 +59,18 @@ const Hero = () => {
           {heroImages.map((image, index) => (
             <CarouselItem key={index} className="h-full">
               <div className="relative w-full h-full">
-                {/* Background image */}
-                <img 
-                  src={image.src} 
-                  alt={image.alt} 
-                  className="absolute inset-0 w-full h-full object-cover object-center"
-                />
+                {/* Background image with responsive sizing */}
+                <div className="absolute inset-0 w-full h-full">
+                  <img 
+                    src={image.src} 
+                    alt={image.alt} 
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    onError={(e) => {
+                      console.error(`Failed to load image: ${image.src}`);
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop";
+                    }}
+                  />
+                </div>
                 
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-barber-charcoal/60 to-barber-brown/60"></div>
