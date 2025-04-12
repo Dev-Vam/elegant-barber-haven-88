@@ -15,21 +15,21 @@ import {
 // Hero carousel images
 const heroImages = [
   {
-    src: "/images/barber-1.jpg",
+    src: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=2070&auto=format&fit=crop",
     alt: "Barber cutting hair in professional setting",
     title: "KMD <span class='text-barber-gold'>Pro</span> Barber",
     subtitle: "Classic Cuts",
     description: "Elevating the art of grooming with precision cuts, classic shaves, and a premium barbershop experience for the modern gentleman."
   },
   {
-    src: "/images/barber-2.jpg",
+    src: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=2044&auto=format&fit=crop",
     alt: "Barber performing a professional shave",
     title: "Premium <span class='text-barber-gold'>Shaves</span>",
     subtitle: "Traditional Techniques",
     description: "Experience traditional hot towel shaves and grooming services delivered with meticulous attention to detail."
   },
   {
-    src: "/images/barber-3.jpg",
+    src: "https://images.unsplash.com/photo-1635273051430-53b4b62c8482?q=80&w=2070&auto=format&fit=crop",
     alt: "Barbershop interior with vintage styling",
     title: "Stylish <span class='text-barber-gold'>Environment</span>",
     subtitle: "Relaxing Atmosphere",
