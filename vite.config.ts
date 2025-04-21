@@ -19,4 +19,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  base: "elegant-barber-haven-88"
 }));
